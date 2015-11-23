@@ -2,8 +2,8 @@ require 'socket'
 require_relative 'pipboy/message'
 
 STDOUT.sync = true
-
-socket = TCPSocket.new('192.168.0.101', 27000)
+ip = ARGV[0]
+socket = TCPSocket.new(ip, 27000)
 keep_alive_msg = Pipboy::Message.keep_alive.to_bytes
 
 while line = socket.recv(8)

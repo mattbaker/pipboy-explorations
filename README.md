@@ -8,17 +8,17 @@ A simple pipe of pip boy messages from the PS4 to STDOUT. Mix with good old fash
 
 ```
 # Dump server data stream to a file
-$ ruby pippipe.rb > test.bin
+$ ruby pippipe.rb 192.168.0.101 > test.bin
 ```
 
 ```
 # Pipe the data stream through a hex viewer to visualize in real time!
-$ ruby pippipe.rb | xxd
+$ ruby pippipe.rb 192.168.0.101 | xxd
 ```
 
 ```
 # Do both at the same time with tee
-$ ruby pippipe.rb | tee test.bin | xxd
+$ ruby pippipe.rb 192.168.0.101 | tee test.bin | xxd
 ```
 
 ## pipparse
@@ -27,7 +27,7 @@ A simple parser of pip boy messages received on STDIN.
 
 ```
 # Process live traffic
-$ ruby pippipe.rb | ruby pipparse.rb
+$ ruby pippipe.rb 192.168.0.101 | ruby pipparse.rb
 
 00000: CONNECTION_ACCEPTED with length 35
        7b226c616e67223a22656e222c227665...
