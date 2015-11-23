@@ -1,4 +1,5 @@
 # Pip-Boy Explorations
+<img src="http://i.imgur.com/Icy3L07.png" width="200" align="right">
 
 Research into Fallout 4's Pip Boy companion app protocol. Credit for getting this party started goes to @rgbkrk and [pipboyrelay](https://github.com/rgbkrk/pipboyrelay), as well as @nelix's [impressive research](https://github.com/rgbkrk/pipboyrelay/pull/2).
 
