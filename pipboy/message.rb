@@ -12,6 +12,14 @@ module Pipboy
       "\x6" => :COMMAND_RESPONSE,
     }
 
+    def self.from_stream(stream)
+      header = stream.read(5)
+      length = header[0...4].unpack("I")[0]
+      opcode = header[-1]
+      body = stream.read(length)
+      Message.new(opcode, body)
+    end
+
     def initialize(opcode, body)
       @opcode = opcode
       @body = body
@@ -25,12 +33,6 @@ module Pipboy
       body.length
     end
 
-    def self.from_stream(stream)
-      header = stream.read(5)
-      length = header[0...4].unpack("I")[0]
-      opcode = header[-1]
-      body = stream.read(length)
-      Message.new(opcode, body)
     end
   end
 end

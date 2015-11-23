@@ -7,7 +7,7 @@ class TestPipboyMessage < Minitest::Test
   end
 
   def test_from_stream
-    fake_stream = StringIO.new("\xA0\x00\x00\x00\x01HELLOWORLD")
+    fake_stream = StringIO.new("\x0A\x00\x00\x00\x01HELLOWORLD---------")
     message = Pipboy::Message.from_stream(fake_stream)
     assert_equal("HELLOWORLD", message.body)
     assert_equal(:CONNECTION_ACCEPTED, message.type)
