@@ -3,13 +3,13 @@ module Pipboy
     attr_reader :opcode, :body
 
     OPCODES = {
-      "\x0" => :KEEP_ALIVE,
-      "\x1" => :CONNECTION_ACCEPTED,
-      "\x2" => :CONNECTION_REFUSED,
-      "\x3" => :DATA_UPDATE,
-      "\x4" => :MAP_UPDATE,
-      "\x5" => :COMMAND,
-      "\x6" => :COMMAND_RESPONSE,
+      0 => :KEEP_ALIVE,
+      1 => :CONNECTION_ACCEPTED,
+      2 => :CONNECTION_REFUSED,
+      3 => :DATA_UPDATE,
+      4 => :MAP_UPDATE,
+      5 => :COMMAND,
+      6 => :COMMAND_RESPONSE,
     }
 
     def initialize(opcode, body)
@@ -32,13 +32,13 @@ module Pipboy
     def self.from_stream(stream)
       header = stream.read(5)
       length = header[0...4].unpack("I")[0]
-      opcode = header[-1]
+      opcode = header[-1].unpack("C")[0]
       body = stream.read(length)
       Message.new(opcode, body)
     end
 
     def self.keep_alive
-      self.new(0,"")
+      self.new(0, "")
     end
   end
 end
