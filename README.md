@@ -9,10 +9,14 @@ A simple pipe of pip boy messages from the PS4 to STDOUT. Mix with good old fash
 ```
 # Dump server data stream to a file
 $ ruby pippipe.rb > test.bin
+```
 
+```
 # Pipe the data stream through a hex viewer to visualize in real time!
 $ ruby pippipe.rb | xxd
+```
 
+```
 # Do both at the same time with tee
 $ ruby pippipe.rb | tee test.bin | xxd
 ```
@@ -41,8 +45,9 @@ $ ruby pippipe.rb | ruby pipparse.rb
 00009: KEEP_ALIVE with length 0
 00010: DATA_UPDATE with length 9
        05777c00009e88a441
+```
 
-
+```
 # Parse an existing dump
 $ ruby pipparse.rb < test.bin
 ```
