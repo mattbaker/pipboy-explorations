@@ -16,3 +16,15 @@ $ ruby pippipe.rb | xxd
 # Do both at the same time with tee
 $ ruby pippipe.rb | tee test.bin | xxd
 ```
+
+## pipparse
+
+A simple parser of pip boy messages received on STDIN.
+
+```
+# Process live traffic
+$ ruby pippipe.rb | ruby pipparse.rb
+
+# Parse an existing dump
+$ ruby pipparse.rb < test.bin
+```
