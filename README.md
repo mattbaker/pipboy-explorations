@@ -2,6 +2,8 @@
 
 Research into Fallout 4's Pip Boy companion app protocol. Credit for getting this party started goes to @rgbkrk and [pipboyrelay](https://github.com/rgbkrk/pipboyrelay), as well as @nelix's [impressive research](https://github.com/rgbkrk/pipboyrelay/pull/2).
 
+See @rgbkrk's [original post](https://getcarina.com/blog/fallout-4-service-discovery-and-relay/) for an intro.
+
 ## pippipe
 
 A simple pipe of pip boy messages from the PS4 to STDOUT. Mix with good old fashioned Unix for a good time.
