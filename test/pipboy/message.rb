@@ -17,4 +17,9 @@ class TestPipboyMessage < Minitest::Test
     message = Pipboy::Message.new(3, "HOLAWORLD")
     assert_equal("\x09\x00\x00\x00\x03HOLAWORLD", message.to_bytes)
   end
+
+  def test_hex_body
+    message = Pipboy::Message.new(3, "\xF\xA\xC\xE")
+    assert_equal("0F0A0C0E", message.hex_body)
+  end
 end

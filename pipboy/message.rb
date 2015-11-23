@@ -21,6 +21,10 @@ module Pipboy
       OPCODES.fetch(opcode, :UNKNOWN)
     end
 
+    def hex_body
+      body.unpack("H*")[0].upcase
+    end
+
     def length
       body.length
     end
