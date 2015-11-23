@@ -12,4 +12,9 @@ class TestPipboyMessage < Minitest::Test
     assert_equal("HELLOWORLD", message.body)
     assert_equal(:CONNECTION_ACCEPTED, message.type)
   end
+
+  def test_to_bytes
+    message = Pipboy::Message.new(3, "HOLAWORLD")
+    assert_equal("\x09\x00\x00\x00\x03HOLAWORLD", message.to_bytes)
+  end
 end

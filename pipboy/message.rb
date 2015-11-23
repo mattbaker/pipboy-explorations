@@ -33,6 +33,8 @@ module Pipboy
       body.length
     end
 
+    def to_bytes
+      [body.length, opcode].pack("IC") + body
     end
   end
 end
