@@ -12,14 +12,6 @@ module Pipboy
       "\x6" => :COMMAND_RESPONSE,
     }
 
-    def self.from_stream(stream)
-      header = stream.read(5)
-      length = header[0...4].unpack("I")[0]
-      opcode = header[-1]
-      body = stream.read(length)
-      Message.new(opcode, body)
-    end
-
     def initialize(opcode, body)
       @opcode = opcode
       @body = body
@@ -35,6 +27,18 @@ module Pipboy
 
     def to_bytes
       [body.length, opcode].pack("IC") + body
+    end
+
+    def self.from_stream(stream)
+      header = stream.read(5)
+      length = header[0...4].unpack("I")[0]
+      opcode = header[-1]
+      body = stream.read(length)
+      Message.new(opcode, body)
+    end
+
+    def self.keep_alive
+      self.new(0,"")
     end
   end
 end
