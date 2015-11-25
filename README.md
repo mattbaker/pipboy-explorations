@@ -5,6 +5,8 @@ Research into Fallout 4's Pip Boy companion app protocol. Credit for getting thi
 
 See @rgbkrk's [original post](https://getcarina.com/blog/fallout-4-service-discovery-and-relay/) for an intro.
 
+## pipboyspec
+
 [pipboyspec](https://github.com/mattbaker/pipboyspec) is a repository attempting to document the protocol for others interested in implementing their own clients or servers.
 
 ## pippipe
