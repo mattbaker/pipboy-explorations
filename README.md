@@ -1,9 +1,11 @@
-# Pip-Boy Explorations
+# Pipboy Explorations
 <img src="http://i.imgur.com/Icy3L07.png" width="200" align="right">
 
 Research into Fallout 4's Pip Boy companion app protocol. Credit for getting this party started goes to @rgbkrk and [pipboyrelay](https://github.com/rgbkrk/pipboyrelay), as well as @nelix's [impressive research](https://github.com/rgbkrk/pipboyrelay/pull/2).
 
 See @rgbkrk's [original post](https://getcarina.com/blog/fallout-4-service-discovery-and-relay/) for an intro.
+
+[pipboyspec](https://github.com/mattbaker/pipboyspec) is a repository attempting to document the protocol for others interested in implementing their own clients or servers.
 
 ## pippipe
 
@@ -26,7 +28,7 @@ $ ruby pippipe.rb 192.168.0.101 | tee test.bin | xxd
 
 ## pipparse
 
-A simple parser of pip boy messages received on STDIN.
+A simple parser of pipboy messages received on STDIN.
 
 ```
 # Process live traffic
