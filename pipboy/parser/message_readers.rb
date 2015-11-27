@@ -1,3 +1,5 @@
+require 'json'
+
 module Pipboy
   module Parser
     module MessageReaders
