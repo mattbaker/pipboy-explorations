@@ -26,10 +26,6 @@ module Pipboy
         stream.read(4).unpack("L")[0]
       end
 
-      def uint(stream)
-        stream.read(4).unpack("I")[0]
-      end
-
       def float32(stream)
         stream.read(4).unpack("F")[0]
       end

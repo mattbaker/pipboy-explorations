@@ -6,7 +6,7 @@ module Pipboy
       extend self
 
       def header(stream)
-        [PrimitiveReaders.uint(stream), PrimitiveReaders.uint8(stream)]
+        [PrimitiveReaders.uint32(stream), PrimitiveReaders.uint8(stream)]
       end
 
       def list(stream, mod, type)
