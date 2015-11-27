@@ -11,7 +11,7 @@ module Pipboy
         "SERVER BUSY"
       end
 
-      def read_data_update(stream, length)
+      def data_update(stream, length)
         stop_position = stream.pos+length
         updates = []
         while stream.pos < stop_position
