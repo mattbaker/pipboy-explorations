@@ -1,4 +1,6 @@
 require 'json'
+require_relative 'primitive_readers'
+require_relative 'composite_readers'
 
 module Pipboy
   module Parser
