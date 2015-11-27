@@ -26,28 +26,13 @@ $ ruby pippipe.rb 192.168.0.101 | tee test.bin | xxd
 
 ## pipparse
 
-A simple parser of pip boy messages received on STDIN.
+A simple parser of pip boy messages received on STDIN. JSON representations of each message are sent to STDOUT.
 
 ```
 # Process live traffic
 $ ruby pippipe.rb 192.168.0.101 | ruby pipparse.rb
-
-00000: CONNECTION_ACCEPTED with length 35
-       7b226c616e67223a22656e222c227665...
-00001: DATA_UPDATE with length 443764
-       06786e00002447656e6572616c000388...
-00002: KEEP_ALIVE with length 0
-00003: DATA_UPDATE with length 9
-       05777c00005b44a441
-00004: KEEP_ALIVE with length 0
-00005: KEEP_ALIVE with length 0
-00006: DATA_UPDATE with length 9
-       05777c00007b66a441
-00007: KEEP_ALIVE with length 0
-00008: KEEP_ALIVE with length 0
-00009: KEEP_ALIVE with length 0
-00010: DATA_UPDATE with length 9
-       05777c00009e88a441
+{"message_type":"CONNECTION_ACCEPTED","message_body":{"lang":"en","version":"1.1.21.0"}}
+{"message_type":"DATA_UPDATE","message_body":[{"set":28280,"value":"$General"},{"set":28296,"value":60},{"set":28295,"value":"Locations Discovered"},{"set":28297,"value":true} #...snip...
 ```
 
 ```
