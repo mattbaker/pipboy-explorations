@@ -19,10 +19,12 @@ class TestPipboyCompositeReaders < Minitest::Test
   end
 
   def test_dict_entry
-    streamBytes = StringIO.new("\xA0\x00\x00\x00\x03\x48\x45\x4C\x4C\x4F\x57\x4F\x52\x4C\x44")
-    assert_equal({"\u0003HELLOWORLD" => 160}, Pipboy::Parser::CompositeReaders.dict_entry(streamBytes))
+    streamBytes = StringIO.new("\xA0\x00\x00\x00\x03\x48\x45\x4C\x4C\x4F\x57\x4F\x52\x4C\x44\x70\x69\x70\x62\x6f\x79\x00\x00\x00\x00\x00")
+    assert_equal({"\u0003HELLOWORLDpipboy" => 160}, Pipboy::Parser::CompositeReaders.dict_entry(streamBytes))
   end
 
   def test_dict_update
+    streamBytes = StringIO.new("\x01\x00\x00\x00\x03\x48\x45\x4C\x4C\x4F\x57\x4F\x52\x4C\x44\x70\x69\x70\x62\x6f\x79\x00\x00\x00\x00\x00\x03\x48\x45\x4C\x4C\x4F\x57\x4F\x52\x4C\x44\x70\x69\x70\x62\x6f\x79")
+    assert_equal({:updates=>[{"ELLOWORLDpipboy"=>1208156160}], :removals=>[]}, Pipboy::Parser::CompositeReaders.dict_update(streamBytes))
   end
 end
