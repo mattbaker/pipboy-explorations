@@ -61,7 +61,6 @@ class TestPipboyMessageReaders < Minitest::Test
     assert_equal([{set:11, value: [4294967295,33554431]}], msg)
   end
 
-
   def test_data_update_dict_update
   end
 end

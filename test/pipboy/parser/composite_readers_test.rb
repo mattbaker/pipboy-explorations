@@ -28,5 +28,3 @@ class TestPipboyCompositeReaders < Minitest::Test
     assert_equal({:updates=>[{"\"lan\u0001"=>2063663104}, {"\",\"versi"=>1852121658}], :removals=>[774971962]}, Pipboy::Parser::CompositeReaders.dict_update(streamBytes))
   end
 end
-
-
