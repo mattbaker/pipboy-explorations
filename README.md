@@ -43,3 +43,14 @@ $ ruby pippipe.rb 192.168.0.101 | ruby pipparse.rb
 # Parse an existing dump
 $ ruby pipparse.rb < test.bin
 ```
+
+## pipviz
+
+Receives a stream of parsed messages in the form of JSON strings and consumes them, including maintaining a database of game data. For now, just useful to examine a dump. `ARGV[0]` is the ID of the object you want to look at. 0-11 are good ids to start with.
+
+```
+# Parse an existing dump and pipe into pipviz
+$ ruby pipparse.rb < test.bin | ruby pipviz.rb 1
+```
+
+Todo: some sort of live visualization
