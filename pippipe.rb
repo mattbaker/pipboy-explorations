@@ -4,11 +4,11 @@ require_relative 'pipboy/message'
 STDOUT.sync = true
 ip = ARGV[0]
 socket = TCPSocket.new(ip, 27000)
-keep_alive_msg = Pipboy::Message.keep_alive.to_bytes
+keep_alive = "\x00\x00\x00\x00\x00"
 
 while line = socket.recv(8)
-  if line == keep_alive_msg
-    socket.send(keep_alive_msg, 0)
+  if line == keep_alive
+    socket.send(keep_alive, 0)
   end
   n = STDOUT.write(line)
 end
