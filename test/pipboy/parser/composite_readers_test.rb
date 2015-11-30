@@ -14,8 +14,8 @@ class TestPipboyCompositeReaders < Minitest::Test
 
   def test_list
     primitiveReaders = Pipboy::Parser::PrimitiveReaders
-    streamBytes = StringIO.new("\x03\x00\x00\x00\x03\x48\x45\x4C\x4C\x4F\x57\x4F\x52\x4C")
-    assert_equal([1208156160, 1330400325, 1280462679], Pipboy::Parser::CompositeReaders.list(streamBytes, primitiveReaders, :uint32))
+    streamBytes = StringIO.new("\x03\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00")
+    assert_equal([1, 2, 3], Pipboy::Parser::CompositeReaders.list(streamBytes, primitiveReaders, :uint32))
   end
 
   def test_dict_entry
