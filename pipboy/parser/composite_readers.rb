@@ -19,15 +19,15 @@ module Pipboy
       end
 
       def dict_entry(stream)
-        value = PrimitiveReaders.reference(stream)
+        reference = PrimitiveReaders.reference(stream)
         key = PrimitiveReaders.string(stream)
-        {key => value}
+        [key, reference]
       end
 
       def dict_update(stream)
         updates = list(stream, CompositeReaders, :dict_entry)
         removals = list(stream, PrimitiveReaders, :reference)
-        {updates: updates, removals: removals}
+        [updates, removals]
       end
     end
   end

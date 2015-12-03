@@ -27,7 +27,7 @@ module Pipboy
         "NOT IMPLEMENTED"
       end
 
-      {message_type: OPCODE_NAMES[opcode], message_body: body}
+      {type: OPCODE_NAMES[opcode], body: body}
     end
   end
 end
