@@ -26,7 +26,7 @@ class TestPipboyCompositeReaders < Minitest::Test
     value = "\x15\x00\x00\x00"
     key = "\x44\x69\x63\x74\x69\x6f\x6e\x61\x72\x79\x45\x6e\x74\x72\x79\x54\x65\x73\x74\x00"
     streamBytes = StringIO.new(value+key)
-    assert_equal({"DictionaryEntryTest"=>21}, Pipboy::Parser::CompositeReaders.dict_entry(streamBytes))
+    assert_equal(["DictionaryEntryTest", 21], Pipboy::Parser::CompositeReaders.dict_entry(streamBytes))
   end
 
   def test_dict_update
@@ -37,6 +37,6 @@ class TestPipboyCompositeReaders < Minitest::Test
     references_to_remove = "\x01\x00\x00\x00\x02\x00\x00\x00"
     streamBytes = StringIO.new(updates_length+dict_entry_1+dict_entry_2+removal_length+references_to_remove)
     dictionary_update = Pipboy::Parser::CompositeReaders.dict_update(streamBytes)
-    assert_equal({:updates=>[{"foo"=>3}, {"bar"=>4}], :removals=>[1, 2]}, dictionary_update)
+    assert_equal([[["foo",3], ["bar",4]], [1, 2]], dictionary_update)
   end
 end
