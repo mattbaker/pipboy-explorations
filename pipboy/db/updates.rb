@@ -18,6 +18,12 @@ module Pipboy
         def self.from_hash(hash)
           new(hash["ref"], hash["value"])
         end
+
+        def ==(other)
+          other.is_a?(self.class) &&
+          other.ref == ref &&
+          other.value == value
+        end
       end
 
       class Dictionary
@@ -27,6 +33,13 @@ module Pipboy
           @ref = ref
           @entries = entries
           @removals = removals
+        end
+
+        def ==(other)
+          other.is_a?(self.class) &&
+          other.ref == ref &&
+          other.entries == entries &&
+          other.removals == removals
         end
 
         def to_json(*a)
