@@ -1,5 +1,4 @@
 require 'socket'
-require_relative 'pipboy/message'
 
 STDOUT.sync = true
 ip = ARGV[0]
